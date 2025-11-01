@@ -2,16 +2,33 @@
 //2573167176@qq.com
 //李昊
 #include <stdio.h>
+#include <math.h> 
 
 int main() {
-    float celsius, fahrenheit;
+    int n;
+    int is_prime = 1; 
     
-    scanf("%f", &celsius);
+    scanf("%d", &n);
+    
+   
+    if (n == 1) {
+        is_prime = 0;
+    } else {
+       
+        for (int i = 2; i <= sqrt(n); i++) {
+            if (n % i == 0) {  
+                is_prime = 0;
+                break;  
+            }
+        }
+    }
     
 
-    fahrenheit = celsius * 9 / 5 + 32;
-    
-    printf("%.1f\n", fahrenheit);
+    if (is_prime) {
+        printf("密钥安全，密码设置成功\n");
+    } else {
+        printf("密钥不安全，请重新输入\n");
+    }
     
     return 0;
 }
