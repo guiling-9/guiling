@@ -1,21 +1,35 @@
 #include <stdio.h>
 
+#include <stdio.h>
+#include <math.h> 
+
 int main() {
-    int score;
-    scanf("%d", &score);
+    int n;
+    int is_prime = 1;  
+    int i = 2;  
     
-    if (score >= 90 && score <= 100) {
-        printf("A\n");
-    } else if (score >= 80 && score <= 89) {
-        printf("B\n");
-    } else if (score >= 70 && score <= 79) {
-        printf("C\n");
-    } else if (score >= 60 && score <= 69) {
-        printf("D\n");
-    } else if (score >= 0 && score < 60) {
-        printf("E\n");
+   
+    scanf("%d", &n);
+    
+  
+    if (n == 1) {
+        is_prime = 0;
     } else {
-        printf("Invalid score\n");
+        
+        while (i <= sqrt(n)) {
+            if (n % i == 0) { 
+                is_prime = 0;
+                break;  
+            }
+            i++;  
+        }
+    }
+    
+   
+    if (is_prime) {
+        printf("密钥安全，密码设置成功\n");
+    } else {
+        printf("密钥不安全，请重新输入\n");
     }
     
     return 0;
