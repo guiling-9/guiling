@@ -4,22 +4,26 @@
 #include <stdio.h>
 
 int main() {
-    int score;
-    scanf("%d", &score);
-    
-    if (score >= 90 && score <= 100) {
-        printf("A\n");
-    } else if (score >= 80 && score <= 89) {
-        printf("B\n");
-    } else if (score >= 70 && score <= 79) {
-        printf("C\n");
-    } else if (score >= 60 && score <= 69) {
-        printf("D\n");
-    } else if (score >= 0 && score < 60) {
-        printf("E\n");
-    } else {
-        printf("Invalid score\n");
+    int num;
+    int first, second, third; 
+    int count = 0;             
+
+   
+    for (num = 100; num <= 999; num++) {
+        
+        first = num / 100;          
+        second = (num / 10) % 10;   
+        third = num % 10;           
+        
+        if (first * first * first + second * second * second + third * third * third == num) {
+            
+            if (count > 0) {
+                printf(" ");
+            }
+            printf("%d", num);
+            count++;
+        }
     }
-    
+    printf("\n");
     return 0;
 }
