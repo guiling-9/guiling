@@ -4,15 +4,27 @@
 #include <stdio.h>
 
 int main() {
-    int a, b, c;
+    int num = 100; 
+    int first, second, third;
+    int count = 0;  
 
-    scanf("%d %d %d", &a, &b, &c);
     
-    if (a + b > c && a + c > b && b + c > a) {
-        printf("可以组成三角形\n");
-    } else {
-        printf("不能组成三角形\n");
+    while (num <= 999) {
+        
+        first = num / 100;
+        second = (num / 10) % 10;
+        third = num % 10;
+
+        if (first * first * first + second * second * second + third * third * third == num) {
+            if (count > 0) {
+                printf(" ");
+            }
+            printf("%d", num);
+            count++;
+        }
+
+        num++; 
     }
-    
+    printf("\n");
     return 0;
 }
